@@ -168,8 +168,8 @@ class ScanController(SuperScanController):
             print_exc()
             return
 
+        self._commChannel.sigScanStarting.emit()
         self._master.nidaqManager.runScan(self.signalDic, self.scanInfoDict)
-        self._commChannel.sigScanStarted.emit()
 
     def scanDone(self):
         print('Scan done')
