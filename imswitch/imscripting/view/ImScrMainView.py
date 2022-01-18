@@ -45,27 +45,27 @@ class ImScrMainView(QtWidgets.QMainWindow):
         self.dockArea = DockArea()
         self.setCentralWidget(self.dockArea)
 
-        self.editor = EditorView()
-        self.editorDock = Dock('Script Editor')
-        self.editorDock.addWidget(self.editor)
-        self.dockArea.addDock(self.editorDock)
+        #self.editor = EditorView()
+        #self.editorDock = Dock('Script Editor')
+        #self.editorDock.addWidget(self.editor)
+        #self.dockArea.addDock(self.editorDock)
 
         self.files = FilesView()
         self.filesDock = Dock('Files')
         self.filesDock.addWidget(self.files)
-        self.dockArea.addDock(self.filesDock, 'left', self.editorDock)
+        self.dockArea.addDock(self.filesDock)
 
         self.console = ConsoleView()
         self.consoleDock = Dock('Console')
         self.consoleDock.addWidget(self.console)
-        self.dockArea.addDock(self.consoleDock, 'right', self.editorDock)
+        self.dockArea.addDock(self.consoleDock, 'right', self.filesDock)
 
         self.output = OutputView()
         self.outputDock = Dock('Output')
         self.outputDock.addWidget(self.output)
-        self.dockArea.addDock(self.outputDock, 'bottom', self.editorDock)
+        self.dockArea.addDock(self.outputDock, 'bottom', self.filesDock)
 
-        self.editorDock.setStretch(20, 30)
+        #self.editorDock.setStretch(20, 30)
 
     def closeEvent(self, event):
         self.sigClosing.emit()

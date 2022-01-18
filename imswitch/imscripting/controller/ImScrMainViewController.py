@@ -12,8 +12,8 @@ class ImScrMainViewController(ImScrWidgetController):
         super().__init__(*args, **kwargs)
         self.filesController = self._factory.createController(FilesController,
                                                               self._widget.files)
-        self.editorController = self._factory.createController(EditorController,
-                                                               self._widget.editor)
+        #self.editorController = self._factory.createController(EditorController,
+                                                             #  self._widget.editor)
         self.consoleController = self._factory.createController(ConsoleController,
                                                                 self._widget.console)
         self.outputController = self._factory.createController(OutputController,
